@@ -18,3 +18,34 @@ background.addEventListener('mousemove', (e) => {
     transparent 80%
   )`;
 });
+
+// Function to highlight active section
+function highlightActiveSection() {
+    const sections = document.querySelectorAll('section');
+    const links = document.querySelectorAll('a');
+
+    let currentSection = '';
+
+    sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+            currentSection = section.id;
+        }
+    });
+
+    links.forEach((link) => {
+        const linkHref = link.getAttribute('href').substring(1); // Remove "#" symbol
+        if (linkHref === currentSection) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
+// Add event listener for scroll
+window.addEventListener('scroll', highlightActiveSection);
+
+// Call the function on load to highlight the initial section
+highlightActiveSection();
+
