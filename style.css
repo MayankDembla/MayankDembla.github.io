@@ -88,17 +88,20 @@ a.active .nav-indicator {
     transition: background-position 0.2s ease; /* Smooth movement of light */
 }
 
+/**  ------------------------------- Left Side Styling --------------------------- **/
+
 /* Left Side Styling */
 .left-side {
     position: fixed;
-    top: 50px;
-    left: 170px;
+    top: 30px;
+    left: 80px;
     width: 450px;
     height: 100%;
     background: rgb(15, 23, 42); /* Dark blue background */
     color: #E2E8F0;
     padding: 30px;
     box-sizing: border-box;
+    overflow: auto;
 }
 
 .left-side h1 {
@@ -151,16 +154,33 @@ a.active .nav-indicator {
     border-radius: 5px;
 }
 
+/**  ------------------------------- Right Side Styling --------------------------- **/
+
 /* Right Side Styling */
 .right-side {
-    margin-left: 700px;
-    margin-right: 80px;
-    margin-top: 70px;
+    margin-left: 600px;
+    margin-right: 100px;
+    margin-top: 30px;
     padding: 20px;
     color: #94A3B8;
     font-size: 1.0rem;
     line-height: 1.6;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    height: calc(100vh - 30px);
 }
+
+.right-side::-webkit-scrollbar {
+    display: none;
+}
+
+section {
+    scroll-margin-top: 30px; /* Adjust for the offset */
+    margin-bottom: 100vh; /* Provide proper space between sections */
+    scroll-snap-align: start; /* Align section neatly at the top */
+}
+
 
 /* Highlight text with white background */
 .highlight {
@@ -169,8 +189,58 @@ a.active .nav-indicator {
     border-radius: 4px;
 }
 
+/* Experience */
+#experience h2 {
+    text-transform: uppercase;
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 1.5rem;
+}
 
-/* Responsive Styles */
+#experience ol {
+    list-style: none;
+    padding: 0;
+}
+
+#experience li {
+    background: #f8f9fa;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#experience li h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+#experience li p {
+    color: #6c757d;
+    margin: 0.5rem 0;
+}
+
+#experience li ul {
+    padding: 0;
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+#experience li ul li {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+}
+
+
+/**  ------------------------------- Responsive Styling --------------------------- **/
+
+/* -------Responsive Styles-------------- */
 @media screen and (max-width: 1200px) {
     .left-side {
         width: 400px; /* Decrease the width for smaller screens */

@@ -49,3 +49,20 @@ window.addEventListener('scroll', highlightActiveSection);
 // Call the function on load to highlight the initial section
 highlightActiveSection();
 
+document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = document.querySelectorAll(".left-side a");
+    const sections = document.querySelectorAll(".right-side section");
+
+    // Smooth scroll when clicking navigation links
+    navLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault(); // Prevent default anchor behavior
+            const targetId = link.getAttribute("href").substring(1); // Get section ID
+            const targetSection = document.getElementById(targetId);
+
+            // Smooth scroll to the target section
+            targetSection.scrollIntoView({ behavior: "smooth" });
+        });
+    });
+});
+
