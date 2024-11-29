@@ -316,6 +316,50 @@ ul.mt-8 {
     font-size: 1.75rem;
 }
 
+/**--------------------- badges ----------------------- **/
+
+/* General badge styling */
+.badge {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    margin: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for badges */
+.badge:hover {
+    background-color: #0056b3;  /* Slightly darker blue */
+    color: #c2c9d1;
+    transform: scale(1.1);  /* Slightly enlarge the badge */
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.5);  /* Add a soft shadow for a glowing effect */
+}
+
+/* Optional: Focus effect for accessibility */
+.badge:focus {
+    outline: none; /* Removes the default outline */
+    transform: scale(1.1);  /* Same hover scale effect */
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.5);  /* Same glowing effect */
+}
+
+
+/* Styling the image badge separately */
+.image-badge {
+    display: inline-block;
+    width: 90px; /* Adjust the size of the image */
+    height: auto;
+    border-radius: 12px; /* Optional: rounds the corners of the image */
+    transition: transform 0.3s ease; /* Smooth scaling effect on hover */
+}
+
+/* Hover effect for image badges */
+.image-badge:hover {
+    transform: scale(1.1); /* Slightly enlarge the image on hover */
+}
+
 
 
 
