@@ -19,44 +19,17 @@ background.addEventListener('mousemove', (e) => {
   )`;
 });
 
-// Function to highlight active section
-function highlightActiveSection() {
-    const sections = document.querySelectorAll('section');
-    const links = document.querySelectorAll('a');
 
-    let currentSection = '';
-
-    sections.forEach((section) => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-            currentSection = section.id;
-        }
-    });
-
-    links.forEach((link) => {
-        const linkHref = link.getAttribute('href').substring(1); // Remove "#" symbol
-        if (linkHref === currentSection) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-}
-
-// Add event listener for scroll
-window.addEventListener('scroll', highlightActiveSection);
-
-// Call the function on load to highlight the initial section
-highlightActiveSection();
 
 document.addEventListener("DOMContentLoaded", () => {
-    const navLinks = document.querySelectorAll(".left-side a");
-    const sections = document.querySelectorAll(".right-side section");
+    const navLinks = document.querySelectorAll(".left-side a"); // Navigation links
+    const sections = document.querySelectorAll(".right-side section"); // Sections in the right-side content
+    const scrollableElement = document.querySelector(".right-side"); // Right-side container
 
     // Smooth scroll when clicking navigation links
     navLinks.forEach((link) => {
         link.addEventListener("click", (e) => {
-            e.preventDefault(); // Prevent default anchor behavior
+            e.preventDefault();
             const targetId = link.getAttribute("href").substring(1); // Get section ID
             const targetSection = document.getElementById(targetId);
 
@@ -64,5 +37,41 @@ document.addEventListener("DOMContentLoaded", () => {
             targetSection.scrollIntoView({ behavior: "smooth" });
         });
     });
+
+    // Function to highlight the active section
+    function highlightActiveSection() {
+        let currentSection = "";
+
+        sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            // Check if the section is in view
+            if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                currentSection = section.id;
+            }
+        });
+
+        // Highlight the active link
+        navLinks.forEach((link) => {
+            const linkHref = link.getAttribute("href").substring(1);
+            if (linkHref === currentSection) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
+    }
+
+    // Attach scroll event listener to the right-side container
+    if (scrollableElement) {
+        scrollableElement.addEventListener("scroll", () => {
+            console.log("Scroll detected"); // Debugging scroll event
+            highlightActiveSection();
+        });
+    }
+
+    // Initial call to highlight the first section
+    highlightActiveSection();
 });
+
+
 

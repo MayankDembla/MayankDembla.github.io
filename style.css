@@ -360,6 +360,15 @@ ul.mt-8 {
     transform: scale(1.1); /* Slightly enlarge the image on hover */
 }
 
+a.active .nav-indicator {
+    width: 16px; /* Highlighted indicator width */
+    background-color: #f39c12; /* Highlight color */
+}
+
+a.active .nav-text {
+    color: #f39c12; /* Highlight text color */
+}
+
 
 
 
