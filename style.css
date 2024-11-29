@@ -21,7 +21,7 @@ li {
 a {
     display: flex;
     align-items: center;
-    color: #94A3B8; /* Default text color */
+    color: #c2c9d1; /* Default text color */
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -177,7 +177,7 @@ a.active .nav-indicator {
 
 section {
     scroll-margin-top: 30px; /* Adjust for the offset */
-    margin-bottom: 100vh; /* Provide proper space between sections */
+    margin-bottom: 10vh; /* Provide proper space between sections */
     scroll-snap-align: start; /* Align section neatly at the top */
 }
 
@@ -190,8 +190,7 @@ section {
 }
 
 /* Experience */
-#experience h2 {
-    text-transform: uppercase;
+#experience h3 {
     text-align: center;
     color: #007bff;
     margin-bottom: 1.5rem;
@@ -203,11 +202,19 @@ section {
 }
 
 #experience li {
-    background: #f8f9fa;
     margin-bottom: 1rem;
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: rgb(15, 23, 42); /* Default background */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+#experience li:hover {
+    background: rgb(30, 41, 59); /* Slightly lighter background */
+    transform: translateY(-4px); /* Adds a subtle lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    cursor: pointer; /* Indicates interactivity */
 }
 
 #experience li h3 {
@@ -216,7 +223,7 @@ section {
 }
 
 #experience li p {
-    color: #6c757d;
+    color: #94A3B8;
     margin: 0.5rem 0;
 }
 
@@ -236,6 +243,44 @@ section {
     border-radius: 12px;
     font-size: 0.8rem;
 }
+
+/* -------         Each Section  --------  */
+
+p a.client-link {
+    white-space: nowrap;
+}
+
+/* Hover effect for links */
+p a.client-link:hover {
+    color: #ffffff; /* Light green color */
+}
+
+
+/* Additional styling for badges for a polished look */
+
+.list-inline {
+    padding-left: 0; /* Remove default padding of the list */
+    margin-top: 0; /* Remove margin on top of the list */
+    margin-bottom: 0; /* Remove margin at the bottom of the list */
+    list-style-type: none; /* Remove bullets */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to the next line */
+    gap: 0.2rem; /* Minimal gap between the list items */
+}
+
+.list-inline-item {
+    margin-right: 0.2rem;
+    margin-bottom: 0.1rem;
+    display: inline-block;
+}
+
+.list-inline-item:hover {
+    background-color: #3cb371; /* Slightly lighter green for hover */
+    color: #ffffff; /* Ensure the text remains readable */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+
 
 
 /**  ------------------------------- Responsive Styling --------------------------- **/
